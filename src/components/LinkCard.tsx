@@ -27,26 +27,28 @@ export default function LinkCard({ link }: Props) {
       target="_blank"
       rel="noopener noreferrer"
       onClick={() => recordClick(link.id)}
-      className="group flex items-center justify-between gap-3 rounded-2xl border border-stone-200 bg-white px-5 py-4 shadow-sm transition hover:-translate-y-0.5 hover:border-emerald-400 hover:shadow-md active:translate-y-0 focus:outline-none focus-visible:ring-2 focus-visible:ring-emerald-500 dark:border-stone-800 dark:bg-stone-900 dark:hover:border-emerald-500"
+      className="group flex min-h-[66px] items-center justify-between gap-4 rounded-[20px] border border-white/80 bg-white/60 px-5 py-3.5 shadow-[0_1px_2px_rgba(120,70,40,0.05),0_6px_16px_-8px_rgba(160,95,60,0.18)] backdrop-blur-sm transition duration-300 ease-out hover:bg-white/85 hover:shadow-[0_1px_2px_rgba(120,70,40,0.06),0_10px_22px_-10px_rgba(160,95,60,0.28)] focus:outline-none focus-visible:ring-2 focus-visible:ring-[#e0926a] focus-visible:ring-offset-2 focus-visible:ring-offset-[#fff3e8] dark:border-white/5 dark:bg-white/[0.04] dark:shadow-none dark:hover:bg-white/[0.08] dark:focus-visible:ring-offset-[#211812]"
     >
       <div className="min-w-0">
-        <p className="truncate font-semibold">{link.title}</p>
+        <p className="truncate text-[15px] font-semibold tracking-tight">{link.title}</p>
         {link.description && (
-          <p className="mt-0.5 truncate text-sm text-stone-500 dark:text-stone-400">{link.description}</p>
+          <p className="mt-0.5 truncate text-[13px] text-[#9a7b69] dark:text-[#b89c8a]">{link.description}</p>
         )}
       </div>
-      <svg
-        aria-hidden="true"
-        viewBox="0 0 20 20"
-        fill="currentColor"
-        className="h-5 w-5 shrink-0 text-stone-300 transition group-hover:translate-x-0.5 group-hover:text-emerald-500 dark:text-stone-600"
-      >
-        <path
-          fillRule="evenodd"
-          d="M7.21 14.77a.75.75 0 0 1 .02-1.06L11.17 10 7.23 6.29a.75.75 0 1 1 1.04-1.08l4.5 4.25a.75.75 0 0 1 0 1.08l-4.5 4.25a.75.75 0 0 1-1.06-.02Z"
-          clipRule="evenodd"
-        />
-      </svg>
+      <span className="flex h-8 w-8 shrink-0 items-center justify-center text-[#c9a594] transition-colors duration-300 group-hover:text-[#d9794b] dark:text-[#7d6355] dark:group-hover:text-[#f0a37c]">
+        <svg
+          aria-hidden="true"
+          viewBox="0 0 16 16"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.6"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          className="h-4 w-4 transition-transform duration-200 group-hover:-translate-y-px group-hover:translate-x-px"
+        >
+          <path d="M5 11 11 5M6 5h5v5" />
+        </svg>
+      </span>
     </a>
   );
 }

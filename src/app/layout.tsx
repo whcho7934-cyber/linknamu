@@ -27,8 +27,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="ko" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: themeScript }} />
+        {/* eslint-disable-next-line @next/next/no-page-custom-font */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/pretendard@1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.min.css"
+        />
       </head>
-      <body className="min-h-screen bg-stone-50 text-stone-900 antialiased transition-colors dark:bg-stone-950 dark:text-stone-100">
+      <body className="min-h-screen bg-[#fff8ef] text-[#3b2a20] antialiased dark:bg-[#1a1411] dark:text-[#f6ebe1]">
         {children}
       </body>
     </html>
