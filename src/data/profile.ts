@@ -22,19 +22,19 @@ export const profile: Profile = {
   links: [
     {
       id: "github",
-      title: "깃허브",
+      title: "네이버",
       url: "https://www.naver.com",
       description: "만든 프로젝트 모아보기",
     },
     {
       id: "linkedin",
-      title: "링크드인",
+      title: "다음",
       url: "http://www.daum.net",
       description: "경력과 이력",
     },
     {
       id: "email",
-      title: "이메일",
+      title: "구글",
       url: "https://www.google.com",
     },
   ],
