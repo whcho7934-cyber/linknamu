@@ -1,5 +1,5 @@
 import ProfileHeader from "@/components/ProfileHeader";
-import LinkCard from "@/components/LinkCard";
+import LinkList from "@/components/LinkList";
 import ThemeToggle from "@/components/ThemeToggle";
 import { profile } from "@/data/profile";
 
@@ -15,13 +15,7 @@ export default function Home() {
 
         <ProfileHeader name={profile.name} bio={profile.bio} avatarUrl={profile.avatarUrl} />
 
-        <ul className="mt-10 flex flex-col gap-3.5">
-          {profile.links.map((link, i) => (
-            <li key={link.id} className="animate-rise" style={{ animationDelay: `${150 + i * 70}ms` }}>
-              <LinkCard link={link} />
-            </li>
-          ))}
-        </ul>
+        <LinkList links={profile.links} />
       </main>
     </div>
   );

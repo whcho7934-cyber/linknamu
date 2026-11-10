@@ -14,7 +14,14 @@ export async function getDb(): Promise<Db | null> {
   if (!uri) return null;
 
   if (!global._mongoClientPromise) {
-    global._mongoClientPromise = new MongoClient(uri).connect();
+    // DB에 닿지 않을 때 30초씩 붙잡혀 있지 않도록 대기 시간을 짧게 둡니다.
+    global._mongoClientPromise = new MongoClient(uri, { serverSelectionTimeoutMS: 5000 })
+      .connect()
+      .catch((error) => {
+        // 실패한 연결을 캐시에 남기면 이후 요청이 전부 실패하므로 비워서 다음 요청 때 다시 시도합니다.
+        global._mongoClientPromise = undefined;
+        throw error;
+      });
   }
   const client = await global._mongoClientPromise;
   return client.db(dbName);
